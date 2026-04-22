@@ -32,7 +32,7 @@ Once installed, open the **MiKTeX Console**, check and install all updates.
 
 When typesetting (compiling) the dissertation document for the first time, MiKTeX will prompt you to install any missing packages. If a package continues to request installation in subsequent attempts, open the MiKTeX Console, navigate to the *Packages* tab, search for the package, and install it manually.
 
-## How to use the template
+## How to generate the PDF document
 
 Download or clone the repository to your local machine. When the `*.tex` and `references.bib` files are ready with new content, double-click `typeset_document.bat` to generate the PDF document. The script uses `pdflatex` and `biber`, which are included in MiKTeX installation, to perform the following steps:
 
