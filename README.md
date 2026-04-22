@@ -34,7 +34,7 @@ When typesetting (compiling) the dissertation document for the first time, MiKTe
 
 ## How to use the template
 
-Download or clone the repository to your local machine. When the `*.tex` files are ready with new content, double-click `typeset_document.bat` to generate the PDF document. The script uses `pdflatex` and `biber`, which are included in MiKTeX installation, to perform the following steps:
+Download or clone the repository to your local machine. When the `*.tex` and `references.bib` files are ready with new content, double-click `typeset_document.bat` to generate the PDF document. The script uses `pdflatex` and `biber`, which are included in MiKTeX installation, to perform the following steps:
 
 1. Deletes every file in `build/`.
 2. Runs `pdflatex` to generate an initial version of the document.
