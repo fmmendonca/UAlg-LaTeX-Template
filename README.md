@@ -8,14 +8,14 @@ Your contributions to this template are always welcome! If you have made improve
 
 ## Template Structure
 
-- **auxfiles/** – contains the `ualgphdcls.cls` class (document formatting instructions) and the `ualg_logo.png` image (university logo).
-- **build/** – folder where **LaTeX** composes the PDF document and stores all auxiliary files for the process.
+- **auxfiles/** – contains the `ualgphdcls.cls` class file (document formatting) and the `ualg_logo.png` image (university logo).
+- **build/** – directory where **LaTeX** typesets (compiles) the PDF document and stores all auxiliary files for the process.
 - **figures/** – folder for storing the dissertation figures.
-- **main.tex** – main document file. Contains the author's and supervisor(s) information, title, abstract and resumo, acknowledgements, epigraph, tables of contents, and the imports of the chapters (`chapter_*.tex` files) and bibliography file.
-- **chapter_*.tex** – files containing the text of each chapter of the dissertation (e.g., `chapter_1.tex`, `chapter_2.tex`, etc.).
-- **compose.bat** – file containing the command lines needed to typeset (compile) the document on Windows systems.
-- **references.bib** – the dissertation’s reference library (**BibTeX** format).
-
+- **main.tex** – main document file. Contains the author's and supervisor(s) information, title, abstract and resumo, acknowledgements, epigraph, tables of contents, and the imports for the chapters (`chapter_*.tex` files) and bibliography.
+- **chapter_*.tex** – files containing the content of each dissertation chapter (e.g., `chapter_1.tex`, `chapter_2.tex`, etc.).
+- **compose.bat** – script containing the commands required to typeset (compile) the document on Windows systems.
+- **references.bib** – bibliography file in BibTeX format.
+  
 ## Requirements
 
 The files can be edited using any preferred plain-text editor. This template was developed using **Visual Studio Code** (VS Code) and, although not required, its **LaTeX** extension. The extension improves the editing experience by providing features such as syntax highlighting, among others.
@@ -32,5 +32,10 @@ Once installed, open the **MiKTeX Console**, check and install all updates.
 
 When typesetting (compiling) the dissertation document for the first time, MiKTeX will prompt you to install any missing packages. If a package continues to request installation in subsequent attempts, open the **MiKTeX Console**, navigate to the *Packages* tab, search for the package, and install it manually.
 
+## How to use the template
+
 ## Help links
+
 https://www.learnlatex.org/en/
+
+https://www.overleaf.com/learn
