@@ -8,10 +8,29 @@ Your contributions to this template are always welcome! If you have made improve
 
 ## Template Structure
 
-- **Auxfiles/** – contains the `ualgclass.cls` class (document formatting instructions) and the `UAlg.jpg` image (university logo).
-- **build/** – folder where LaTeX compiles the document into a PDF and stores all auxiliary files for the process.
-- **figures/** – folder for storing the figures in the dissertation.
-- **main.tex** – main document file. Contains the author’s information, title, abstract and summary, dedication, epigraph, tables of contents, and the inclusion of the chapters (`chapter_*.tex` files).
-- **chapter_*.tex** – files containing the text of each chapter of the dissertation (e.g., `chapter_introduction.tex`, `chapter_methodology.tex`, etc.).
-- **compose.bat** – file containing the command lines needed to compile the document on Windows.
-- **references.bib** – the dissertation’s reference library (BibTeX format).
+- **auxfiles/** – contains the `ualgphdcls.cls` class (document formatting instructions) and the `ualg_logo.png` image (university logo).
+- **build/** – folder where **LaTeX** composes the PDF document and stores all auxiliary files for the process.
+- **figures/** – folder for storing the dissertation figures.
+- **main.tex** – main document file. Contains the author's and supervisor(s) information, title, abstract and resumo, acknowledgements, epigraph, tables of contents, and the imports of the chapters (`chapter_*.tex` files) and bibliography file.
+- **chapter_*.tex** – files containing the text of each chapter of the dissertation (e.g., `chapter_1.tex`, `chapter_2.tex`, etc.).
+- **compose.bat** – file containing the command lines needed to typeset (compile) the document on Windows systems.
+- **references.bib** – the dissertation’s reference library (**BibTeX** format).
+
+## Requirements
+
+The files can be edited using any preferred plain-text editor. This template was developed using **Visual Studio Code** (VS Code) and, although not required, its **LaTeX** extension. The extension improves the editing experience by providing features such as syntax highlighting, among others.
+
+> **HINT**: When using the VS Code LaTeX extension, consider disabling the auto-compile feature on save to avoid unnecessary builds and potential errors while editing.
+
+This template uses **MiKTeX** as the LaTeX distribution. On Windows systems, it can be installed via the Command Prompt (terminal) by running the following command:
+
+```bash
+winget install MiKTeX.MiKTeX
+```
+
+Once installed, open the **MiKTeX Console**, check and install all updates.
+
+When typesetting (compiling) the dissertation document for the first time, MiKTeX will prompt you to install any missing packages. If a package continues to request installation in subsequent attempts, open the **MiKTeX Console**, navigate to the *Packages* tab, search for the package, and install it manually.
+
+## Help links
+https://www.learnlatex.org/en/
