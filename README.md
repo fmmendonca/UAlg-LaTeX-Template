@@ -40,7 +40,7 @@ Download or clone the repository to your local machine. When the `*.tex` and `re
 2. Runs `pdflatex` to generate an initial version of the document.
 3. Runs `biber` to process the bibliography.
 4. Runs `pdflatex` two additional times to resolve all references and figures.
-5. The final PDF will be generated inside `build/` and named as `main.pdf`.
+5. The final PDF is generated inside `build/` and named as `main.pdf`.
 
 LaTeX requires multiple passes to correctly resolve cross-references and figures. During the first run, LaTeX collects information about elements such as citations, figures, tables, and the table of contents, and writes this data to auxiliary files. Then `biber` process the bibliography based on that information. Subsequent runs of pdflatex use the updated auxiliary files to correctly insert references, numbering, and links.
 
