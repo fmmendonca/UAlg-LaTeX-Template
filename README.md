@@ -13,7 +13,7 @@ Your contributions to this template are always welcome! If you have made improve
 - **figures/** – folder for storing the dissertation figures.
 - **main.tex** – main document file. Contains the author's and supervisor(s) information, title, abstract and resumo, acknowledgements, epigraph, tables of contents, and the imports for the chapters (`chapter_*.tex` files) and bibliography.
 - **chapter_*.tex** – files containing the content of each dissertation chapter (e.g., `chapter_1.tex`, `chapter_2.tex`, etc.).
-- **compose.bat** – script containing the commands required to typeset (compile) the document on Windows systems.
+- **typeset_document.bat** – script containing the commands required to typeset (compile) the document on Windows systems.
 - **references.bib** – bibliography file in BibTeX format.
   
 ## Requirements
