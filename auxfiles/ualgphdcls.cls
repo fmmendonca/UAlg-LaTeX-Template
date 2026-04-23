@@ -23,7 +23,7 @@
 \RequirePackage[
   backend=biber,
   style=authoryear-comp,
-  sorting=nyt,
+  sorting=ynt,
   maxcitenames=2,
   mincitenames=1,
   maxbibnames=99,
@@ -65,7 +65,7 @@
     linkcolor=black,
     filecolor=magenta,      
     urlcolor=blue,
-    citecolor=red,
+    citecolor=blue,
     }
 \urlstyle{same}
 
