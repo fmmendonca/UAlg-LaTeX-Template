@@ -23,7 +23,7 @@
 \RequirePackage[
   backend=biber,
   style=authoryear-comp,
-  sorting=ynt,
+  sorting=nyt,
   maxcitenames=2,
   mincitenames=1,
   maxbibnames=99,
