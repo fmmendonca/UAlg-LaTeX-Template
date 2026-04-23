@@ -1,0 +1,149 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%           PhD Thesis LaTeX Template for the University of Algarve         %
+%                             Faro, Portugal                                %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Author      : Fernando Mendonça (PhD Student in Marine Sciences)          %
+%                                                                           %
+% Affiliation : CIMA UAlg                                                   %
+%                                                                           %
+% Version     : April 2026                                                  %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Preamble
+\documentclass{auxfiles/ualgphdcls}
+
+\title{DATA ASSIMILATION TOOLS TOWARDS COASTAL OCEAN MODELS}
+\author{FERNANDO MENDONÇA}
+\date{2026}
+
+% Subtitle:
+\ualgsubt{}
+% Course name:
+\ualgcourse{Doutorado em Ciências do Mar, da Terra e do Ambiente}
+% Specialty (EMPTY IF NONE, DO NOT COMMENT COMMAND):
+\ualgspec{Ciências do Mar}
+% Faculty name:
+\ualginstitute{FACULDADE DE CIÊNCIAS E TECNOLOGIA}
+
+% Add supervisors:
+\addsupervisor{Prof. Dr. Flávio Martins}
+\addsupervisor{Dr. Laurent Bertino}
+%\addsupervisor{Dr. Octopus}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+\pagestyle{empty}
+\maketitle
+
+% Dedication:
+\vspace*{\fill}
+\begin{flushright}
+\textit{For my wife Lud, who was my\\unconditional partner on this journey.}
+\end{flushright}
+\vspace*{\fill}
+\newpage
+
+% Acknowledgments:
+\chapter*{Acknowledgments}
+\begin{spacing}{1.0}
+\thispagestyle{empty}
+I often joke that I still know more about air conditioning and refrigeration than ocean modeling. Since my academic background is in Mechanical Engineering, I can only express my deepest gratitude to my supervisors, \href{https://orcid.org/0000-0002-9863-6255}{Prof. Dr. Flávio Martins} and \href{https://orcid.org/0000-0002-1220-7207}{Dr. Laurent Bertino}, especially for their patience and guidance. Without their support, this work would not have been possible. They introduced me to, and guided me through, an entirely new scientific universe, encouraging me to explore concepts and challenges far beyond my original field of training.
+
+This work was carried out with the support of a PhD scholarship from the Portuguese Foundation for Science and Technology (DOI \href{https://doi.org/10.54499/UI/BD/153357/2022}{10.54499/UI/BD/153357/2022}). It also received financial support from the Centre for Marine and Environmental Research (CIMA) of the University of Algarve (DOI \href{https://doi.org/10.54499/UID/00350/2025}{10.54499/UID/00350/2025}), the Associate Laboratory ARNET (DOI \href{https://doi.org/10.54499/LA/P/0069/2020}{10.54499/LA/P/0069/2020}), the Horizon Europe project NAUTILOS (grant agreement No. 101000825), and the European Research Executive Agency project THETIDA (grant agreement No. 101095253).
+
+I would like to express my sincere gratitude to my colleagues from the CIMA modelling laboratory, HIDROTEC, who contributed with discussions, ideas, and continuous support throughout my doctoral studies. In particular, I would like to thank \href{https://orcid.org/0000-0002-3469-6232}{Eloah Rosas}, \href{https://orcid.org/0000-0002-0730-9700}{Lara Mills}, \href{https://orcid.org/0000-0002-6241-8520}{João Janeiro}, \href{https://orcid.org/0000-0001-5538-015X}{Diogo Moreira}, \href{https://orcid.org/0000-0002-2892-5916}{Francisco Santos-Mella}, \href{https://orcid.org/0000-0001-7641-4144}{Juan Garzon}, \href{https://orcid.org/0009-0009-7519-3613}{Anika Manz}, \href{https://orcid.org/0000-0003-3842-1460}{Alfredo Gonzáles} and \href{https://orcid.org/0000-0002-4313-2412}{Marko Tosic}. You are the true modelers.
+
+I am thankful to the members of CIMA and to the community of doctoral students in Marine Sciences for creating a collaborative and motivating environment. I am also grateful to the Nansen Environmental and Remote Sensing Center in Bergen, Norway, for welcoming me at the beginning of my doctoral journey and for providing valuable support during that stage of my work. Finally, I would like to thank all the researchers and colleagues who, in one way or another, contributed to this work.
+
+Last but not least, I am eternally grateful to my family and friends. To my father João and my mother Suely, and to my bros Dudu and Leo, for always believing in me. Remember that an entire ocean could never be enough to separate us. To my friends Caio Maciel and Flávio Andrade, thank you for patiently putting up with my complaints throughout this journey. Finally, to my wife Ludmila, my partner in all adventures, thank you for providing me the support that no one else could ever have offered. Amo todos vocês.
+\end{spacing}
+\newpage
+
+% Epigraph:
+\vspace*{\fill}
+\begin{flushright}
+\textit{``In motion on the ocean\\The moon still keeps on moving\\The waves still keep on waving\\And I still keep on going''}\\--- Anywhere Is (Enya)
+\vspace{8mm}
+
+\textit{``É junto dos bão,\\que nóis fica mió.''}\\--- Mineiro raiz
+\end{flushright}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% PRE-TEXTUAL ELEMENTS
+\frontmatter
+\pagestyle{fancy}
+
+\chapter*{Abstract}
+Ocean observation data can be integrated with hydrodynamic model outputs in a statistically consistent manner through data assimilation (DA) methodologies. In this context, this thesis addressed the implementation of a DA method, focusing on improving ocean observation strategies and forecast skill in the Algarve region. Building on the Algarve Operational Modelling and Monitoring System (SOMA), the work comprised the design and validation of an Observing System Simulation Experiment (OSSE), the optimization of observation strategies for the region, and the development of an operational tool to support these processes. For the SOMA OSSE System, an Ensemble Optimal Interpolation (EnOI) scheme was adapted to assimilate sea surface temperature (SST) data. The system adopted a fraternal twin approach, in which two configurations of SOMA were used to perform the observation experiments. Synthetic observations were assimilated into the model and the results were compared with those obtained from an equivalent framework using real observations. The consistency between both approaches demonstrated that the OSSE system is suitable for evaluating new observation strategies prior to their deployment. In this manner, multiple SST observation scenarios were tested to assess their impact on model performance. The results identified key factors controlling assimilation efficiency, including the optimal number and spatial distribution of observations, as well as the relatively limited influence of sensor accuracy. Finally, it was presented the Python-based operational tool used to manage model simulations and to support both DA and OSSE implementations. The application efficiently handled ensemble generation, model integrations, and experiment management, forming the operational backbone of the system. Although the developed applications still present limitations, particularly the focus on SST, they represent a first step toward the integration of DA methodologies into SOMA, paving the way for enhanced observation systems and more reliable operational forecasting in the Algarve.
+
+\vspace*{\fill}
+\noindent\textbf{Keywords}: coastal modelling; data assimilation; ensemble optimal interpolation; operational forecasting; ocean observation; observation experiments
+\newpage
+
+\chapter*{Resumo}
+\begin{otherlanguage}{portuguese}
+A compreensão e a previsão do estado dos oceanos constituem desafios centrais da oceanografia operacional, particularmente em regiões costeiras onde a variabilidade espaço-temporal é elevada e os processos físicos são altamente dinâmicos. Neste contexto, a combinação de dados observacionais com modelos numéricos por meio de metodologias de assimilação de dados tem-se consolidado como uma abordagem fundamental para melhorar a representação de ambientes marinhos e aumentar a qualidade das previsões. A presente tese aborda a implementação e aplicação de técnicas de assimilação de dados no Sistema Operacional de Modelação do Algarve (SOMA), com especial enfoque na otimização de estratégias de observação e no desenvolvimento de ferramentas operacionais de suporte.
+
+O trabalho desenvolveu-se a partir da adaptação de um esquema de assimilação baseado no método Ensemble Optimal Interpolation (EnOI), aplicado para a assimilação de dados de temperatura na superfície do mar (SST). Este método foi integrado ao SOMA e utilizado como base para o desenvolvimento de um Experimento de Simulação de Sistemas de Observação (OSSE), que constitui uma abordagem numérica que permite avaliar o impacto de diferentes estratégias de observação no desempenho de modelos. Os OSSEs possibilitam testar configurações de redes de observação antes da sua implementação real. O sistema desenvolvido baseou-se na abordagem de \emph{gêmeos fraternos}, na qual duas configurações distintas do SOMA foram utilizadas: uma representando o estado de referência do oceano (Nature Run) e outra simulando a previsão operacional (Free Run). A partir desta configuração, é possível gerar observações sintéticas derivadas do Nature Run, que são posteriormente assimiladas no Free Run, permitindo avaliar de forma consistente o seu impacto no desempenho do modelo.
+
+A validação do sistema OSSE do SOMA foi realizada de acordo com as recomendações estabelecidas na literatura, que indicam a necessidade de comparar o OSSE com um correspondente Experimento de Sistemas de Observação (OSE). Os OSEs do SOMA foram configurados de forma análoga aos OSSEs, utilizando a mesma estrutura experimental e o mesmo esquema de assimilação, mas com dados reais de SST provenientes de satélites. A comparação evidenciou comportamentos semelhantes entre os dois conjuntos de experimentos, tanto na resposta do modelo à assimilação quanto na evolução de erro ao longo do tempo. Essa consistência permitiu considerar o sistema OSSE como validado e apto para testar novas estratégias de observação. A seguir a sua validação, o sistema OSSE do SOMA foi efetivamente utilizado para propor estratégias de observação na região do Algarve, de forma a responder um conjunto de questões fundamentais: qual a densidade ideal de uma rede de observação?; de que forma o ajuste de parâmetros de assimilação pode maximizar o impacto das observações?; quais regiões do domínio apresentam maior relevância na assimilação?; e qual o nível de precisão adequado para os sensores de SST?
+
+Os resultados indicaram que o aumento do número de observações assimiladas conduz a melhorias significativas na qualidade da previsão, embora exista um ponto de saturação a partir do qual os ganhos adicionais se tornam marginais. A análise do raio de localização, parâmetro que controla a extensão espacial da influência de cada observação, demonstrou que valores demasiado baixos podem limitar a utilização da informação disponível, enquanto valores excessivamente elevados tendem a produzir correções demasiado difusas, podendo degradar o desempenho do modelo. A distribuição espacial das observações revelou-se igualmente determinante. Em particular, observações localizadas na região sul e em áreas offshore do domínio apresentaram maior impacto na melhoria das previsões, evidenciando a importância de uma alocação estratégica dos pontos de medição. Por outro lado, a precisão dos sensores demonstrou ter uma influência relativamente reduzida no processo de assimilação, sendo o erro de representatividade do modelo um fator dominante. Dessa forma, os resultados sugerem que, em determinados contextos, pode ser mais vantajoso investir em um maior número de sensores de menor precisão do que em um número reduzido de sensores altamente precisos.
+
+As simulações realizadas no âmbito do sistema OSSE foram gerenciadas por uma ferramenta desenvolvida em Python, denominada SMS-Coastal. No entanto, esta ferramenta não foi concebida exclusivamente para o SOMA, mas sim como uma solução genérica aplicável a qualquer aplicação do modelo hidrodinâmico MOHID. Ainda assim, o SMS-Coastal desempenhou um papel fundamental neste trabalho, fornecendo a infraestrutura necessária para a implementação do esquema EnOI e do sistema OSSE. O programa foi responsável pela integração operacional do Nature Run, uma vez que este foi constituído a partir das previsões do SOMA. Por sua vez, a integração do Free Run foi conduzida em modo de retroprevisão para o ano de 2023, a partir do qual foram extraídos os membros do ensemble utilizados na definição da matriz de covariância de erro do modelo no esquema EnOI. Adicionalmente, o SMS-Coastal foi utilizado para gerenciar as simulações dos estados atualizados, garantindo a execução sistemática de todos os experimentos OSSE e OSE. O seu design genérico e modular permitiu a integração de diferentes estados do modelo mediante apenas pequenos ajustes nos seus parâmetros de entrada, demonstrando a sua flexibilidade não só para aplicações operacionais, mas também para configurações experimentais.
+
+Uma das principais limitações dos sistemas desenvolvidos reside no uso exclusivo de variáveis de superfície, que restringe e reduz o impacto geral do processo de assimilação. Trabalhos futuros devem, portanto, expandir a assimilação para de dados em três dimensões, bem como incluir tipos adicionais de variáveis de observação. Além disso, uma análise de sensibilidade sistemática de outros parâmetros do EnOI será essencial para otimizar o equilíbrio entre estruturas de erro do modelo e influência observacional. Por outro lado, embora o SMS-Coastal forneça uma base robusta para a previsão operacional, sua integração completa com o sistema de assimilação do SOMA e sua continua validação com aplicações adicionais, continuam sendo etapas importantes para o desenvolvimento futuro. Nessa perspectiva, o presente trabalho é entendido como uma base para a integração de metodologias de assimilação na região do Algarve. Ao desenvolver e validar o Sistema OSSE do SOMA, demonstrar sua aplicação no design de estratégias de observação e fornecer a infraestrutura operacional necessária para apoiar esses processos, esta tese abre novos caminhos para o avanço tanto da observação oceânica quanto da modelagem numérica na região.
+
+\vspace*{\fill}
+\noindent\textbf{Keywords}: modelação costeira; assimilação de dados; ensemble optimal interpolation; previsão operacional; observação oceânica; experimentos de observação
+\end{otherlanguage}
+\newpage
+
+% Table of contents:
+\tableofcontents
+\newpage
+\listoffigures
+\newpage
+
+\chapter*{List of Abbreviations}
+\begin{spacing}{1.0}
+{
+\setlength{\parskip}{0pt}
+\setlength{\parindent}{0pt}
+AUV: autonomous underwater vehicle\\
+CMEMS: Copernicus Marine Environment Monitoring Service\\
+DA: data assimilation\\
+EnKF: ensemble Kalman Filter\\
+EnOI: ensemble optimal interpolation\\
+EOV: Essential Ocean Variable\\
+FM: Forecast Model\\
+FR: Free Run\\
+HFT: high-frequency radar\\
+MSS: Murphy Skill Score\\
+NR: Nature Run\\
+OSE: Observing System Experiment\\
+OSSE: Observing System Simulation Experiment\\
+RMSD: root mean square difference\\
+RMSE: root mean square error\\
+SOMA: Algarve Operational Modeling and Monitoring System\\
+SOOP: ships of opportunity\\
+SSH: sea surface height\\
+SST: sea surface temperature\\
+VOS: volunteer observing ship\\
+XBT: expendable bathythermograph
+}
+\end{spacing}
+\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% MAIN CHAPTERS (import *.tex files)
+\mainmatter
+\include{chapter_1}
+\include{chapter_2}
+\include{chapter_3}
+\include{chapter_4}
+\include{chapter_5}
+
+% Bibliography
+\singlespacing
+\printbibliography[heading=bibintoc]	
+\end{document}
