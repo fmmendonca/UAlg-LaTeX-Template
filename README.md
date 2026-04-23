@@ -34,7 +34,7 @@ When typesetting (compiling) the dissertation document for the first time, MiKTe
 
 ## How to generate the PDF document
 
-Download or clone the repository to your local machine. When the `*.tex` and `references.bib` files are ready with new content, double-click `typeset_document.bat` to generate the PDF document. The script uses `pdflatex` and `biber`, which are included in MiKTeX installation, to perform the following steps:
+Download or clone the repository to your local machine. Once the `*.tex` and `references.bib` files have been updated with new content, double-click `typeset_document.bat` to generate the PDF document. The script uses `pdflatex` and `biber`, which are included in MiKTeX installation, to perform the following steps:
 
 1. Deletes every file in `build/`.
 2. Runs `pdflatex` to generate an initial version of the document.
@@ -44,8 +44,56 @@ Download or clone the repository to your local machine. When the `*.tex` and `re
 
 LaTeX requires multiple passes to correctly resolve cross-references and figures. During the first run, LaTeX collects information about elements such as citations, figures, tables, and the table of contents, and writes this data to auxiliary files. Then, `biber` process the bibliography based on that information. Subsequent runs of `pdflatex` use the updated auxiliary files to correctly insert references, numbering, and links.
 
+## Available functions/commands
+
+The LaTeX commands available in this template are provided by the following packages:
+
+- `amsmath` — advanced mathematical typesetting (equations, alignments, etc.)  
+- `amssymb` — additional mathematical symbols  
+- `biblatex` — bibliography management and citation formatting  
+- `babel` — language support and hyphenation rules  
+- `calc` — arithmetic operations with LaTeX lengths and counters  
+- `caption` — customization of figure and table captions  
+- `doi` — formatting of DOI links in references  
+- `etoolbox` — programming tools for conditional logic and macro patching  
+- `fancyhdr` — custom headers and footers  
+- `float` — improved control over figure and table placement  
+- `fontenc` — font encoding configuration  
+- `geometry` — page layout and margin settings  
+- `graphicx` — inclusion and manipulation of images  
+- `hyperref` — hyperlinks within the document (cross-references, URLs)  
+- `cleveref` — intelligent cross-referencing (automatic labels like “Figure”, “Table”)  
+- `lipsum` — dummy text generation (for testing/layout)  
+- `lmodern` — enhanced Latin Modern fonts  
+- `mfirstuc` — capitalization of the first letter of words  
+- `multicol` — multiple-column text formatting  
+- `multirow` — table cells spanning multiple rows  
+- `setspace` — line spacing control  
+- `titlesec` — customization of section titles  
+- `tocloft` — customization of the table of contents  
+- `xcolor` — color support for text and elements  
+- `array` — extended control over arrays and tabular environments  
+- `booktabs` — improved table formatting (professional-quality tables)  
+- `tabularx` — tables with adjustable-width columns
+
+### Custom commands
+
+This template defines two custom commands for cross-referencing, based on the functionality provided by the `hyperref` and `cleveref` packages.
+
+In standard LaTeX:
+- `\ref` produces only the reference number (e.g., 3.2, 5)
+- `\Cref` produces the reference with its label (e.g., Figure 3.2, Chapter 5)
+
+To improve readability, this template introduces:
+- `\bref` — a bold version of `\ref` (e.g., **3.2**, **5**)
+- `\bCref` — a bold version of `\Cref` (e.g., **Figure 3.2**, **Chapter 5**)
+
+These commands behave identically to their original counterparts but display the references in bold font, making them easier to identify within the text.
+
 ## LaTeX help links
 
 https://www.learnlatex.org/en/
 
 https://www.overleaf.com/learn
+
+https://ctan.org/
